@@ -1,0 +1,272 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.landingPage {
+  background-color: #e5e5e5;
+  font-family: "Poppins", sans-serif;
+}
+
+.landingPage header {
+  background-color: #f0fff0;
+  padding-bottom: 10px;
+  margin-bottom: 5%;
+
+  /* height: 100%; */
+}
+
+.landingPage .nav-item {
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.landingPage .btn-signIn {
+  background: #21b573;
+  border-radius: 33px;
+  border: none;
+
+  color: white;
+  padding: 12px 28px;
+  transition: all 0.2s ease-in-out;
+}
+
+.landingPage .btn-signIn:hover {
+  transform: scale(1.1);
+}
+
+.landingPage .container {
+  margin-bottom: 70px;
+}
+
+.landingPage header img {
+  width: 100%;
+}
+
+.landingPage .header-text {
+  padding-right: 40px;
+}
+
+.landingPage .header-text h6 {
+  font-weight: 400;
+  color: #fd511a;
+  line-height: 24px;
+}
+
+.landingPage .header-text h1 {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 70px;
+}
+
+.landingPage .header-text span {
+  color: #21b573;
+}
+
+.landingPage .header-text p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 36px;
+  color: #6c6b6b;
+
+  padding: 10px 10px;
+}
+
+.landingPage .btn-getStarted-buyCourse {
+  background: #21b573;
+  border-radius: 33px;
+  border: none;
+
+  color: white;
+  padding: 12px 28px;
+
+  font-size: 16px;
+  line-height: 19px;
+  margin: 10px 0px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.landingPage .btn-getStarted-buyCourse:hover {
+  transform: scale(1.1);
+}
+
+/* carousel solved */
+.landingPage .carousel-item {
+  height: 400px;
+}
+
+/* carousel icon */
+
+.landingPage .carousel-control-prev-icon,
+.landingPage .carousel-control-next-icon {
+  height: 50px;
+  width: 50px;
+
+  background-image: none;
+}
+
+.landingPage .carousel-control-next-icon:after {
+  content: ">";
+  font-size: 50px;
+  color: lavender;
+}
+
+.landingPage .carousel-control-prev-icon:after {
+  content: "<";
+  font-size: 50px;
+  color: lavender;
+}
+
+/* --------------------------------------------------------------- */ /* books */
+
+.landingPage .books h3 {
+  margin-top: 20px;
+  color: #413960;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 36px;
+}
+
+.landingPage .books h6 {
+  line-height: 24px;
+  color: #585859;
+}
+
+.landingPage .text-center img {
+  width: 50%;
+  /* margin: 20px; */
+}
+
+.landingPage .books {
+  padding: 0 0;
+  margin: 20px;
+
+  background-color: #f0fff0;
+  border-radius: 10px;
+
+  height: 270px;
+  transition: all 0.2s ease-in-out;
+}
+
+.landingPage .books:hover {
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.landingPage .books img {
+  width: 25%;
+}
+
+/* ----------------------------------------------------------- */ /* Online Courses*/
+
+.landingPage .online-courses,
+.landingPage .testimonial {
+  margin: 5%;
+  padding: 5%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.landingPage .online-courses h2,
+.landingPage .testimonial h2 {
+  margin-bottom: 3%;
+  font-weight: 700;
+  line-height: 54px;
+}
+
+.landingPage .card {
+  /* border-radius: 11px; */
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+}
+
+.landingPage .card-text {
+  font-size: 16px;
+  line-height: 24px;
+  /* margin-top: 0; */
+  color: #585859;
+}
+
+.landingPage .card-footer {
+  border: none;
+  background: inherit;
+  padding: 0;
+}
+
+.landingPage .dates h6,
+.landingPage .seats h6 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 0 5px;
+  padding: 0 0 0 0;
+  color: #585859;
+}
+
+/* ----------------------------------------------------------------------- */ /* testimonial */
+
+.landingPage .testimonial-para {
+  font-size: 16px;
+  line-height: 30px;
+  /* height: auto; */
+  width: 50%;
+
+  padding-left: 30px;
+
+  color: #000000;
+}
+
+.landingPage .testimonial div {
+  padding: 0px;
+}
+/* ------------------------------------------------------------------------  */ /* Footer */
+
+.landingPage footer {
+  background-color: #282531;
+  /* height: 400px; */
+  /* width: 100%; */
+  padding: 50px;
+  padding-bottom: 10px;
+}
+
+.landingPage footer p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ffffff;
+  padding-right: 50px;
+}
+
+.landingPage footer h4 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+  /* margin-left: 50px; */
+
+  color: #ffffff;
+}
+
+.landingPage footer ul {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  list-style: none;
+  padding-left: 0;
+
+  color: #ffffff;
+  /* margin: 50px; */
+}
+
+.landingPage #copyright {
+  font-size: 14px;
+  line-height: 30px;
+
+  margin-bottom: 0;
+
+  padding-top: 5%;
+  color: #cdcdcd;
+}

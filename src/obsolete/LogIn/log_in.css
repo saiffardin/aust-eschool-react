@@ -1,0 +1,60 @@
+.LogIn {
+  font-family: "Montserrat", sans-serif;
+  background: #f0fff0;
+  overflow-x: hidden;
+}
+
+.LogIn .container img {
+  width: 50%;
+}
+
+.LogIn h6 {
+  max-width: 510px;
+  font-size: 20px;
+}
+
+.LogIn .my-input {
+  width: 300px;
+  background: #bef3be;
+}
+
+.LogIn .my-input:focus {
+  background: #f0fff0;
+}
+
+.LogIn .logIn-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.LogIn .logIn-btn {
+  background: #21b573;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+.LogIn .logIn-btn:hover {
+  color: white;
+  background: #0f6b40;
+  font-weight: 500;
+}
+
+.LogIn a {
+  font-size: 14px;
+  color: #21b573;
+}
+
+.LogIn p {
+  margin: 0;
+  font-size: 16px;
+  color: gray;
+  font-weight: 500;
+}
+
+.LogIn .third-party {
+  transition: all 0.3s ease-in-out;
+}
+
+.LogIn .third-party:hover {
+  transform:scale(1.1);
+}

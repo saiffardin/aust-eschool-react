@@ -1,0 +1,9 @@
+.buy-course-div .course-container {
+  width: 70%;
+  margin: 0 20px;
+  border-right: 1px solid black;
+}
+
+.buy-course-div .cart-container {
+  margin: 20px;
+}

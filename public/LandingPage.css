@@ -1,0 +1,272 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  background-color: #f0fff0;
+  padding-bottom: 10px;
+  margin-bottom: 5%;
+
+  /* height: 100%; */
+}
+
+.nav-item {
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.btn-signIn {
+  background: #21b573;
+  border-radius: 33px;
+  border: none;
+
+  color: white;
+  padding: 12px 28px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-signIn:hover {
+  transform: scale(1.1);
+}
+
+.container {
+  margin-bottom: 70px;
+}
+
+header img {
+  width: 100%;
+}
+
+.header-text {
+  padding-right: 40px;
+}
+
+.header-text h6 {
+  font-weight: 400;
+  color: #fd511a;
+  line-height: 24px;
+}
+
+.header-text h1 {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 70px;
+}
+
+.header-text span {
+  color: #21b573;
+}
+
+.header-text p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 36px;
+  color: #6c6b6b;
+
+  padding: 10px 10px;
+}
+
+.btn-getStarted-buyCourse {
+  background: #21b573;
+  border-radius: 33px;
+  border: none;
+
+  color: white;
+  padding: 12px 28px;
+
+  font-size: 16px;
+  line-height: 19px;
+  margin: 10px 0px;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-getStarted-buyCourse:hover {
+  transform: scale(1.1);
+}
+
+/* carousel solved */
+.carousel-item {
+  height: 400px;
+}
+
+/* carousel icon */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 50px;
+  width: 50px;
+
+  background-image: none;
+}
+
+.carousel-control-next-icon:after {
+  content: ">";
+  font-size: 50px;
+  color: lavender;
+}
+
+.carousel-control-prev-icon:after {
+  content: "<";
+  font-size: 50px;
+  color: lavender;
+}
+
+/* --------------------------------------------------------------- */ /* books */
+
+.books h3 {
+  margin-top: 20px;
+  color: #413960;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 36px;
+}
+
+.books h6 {
+  line-height: 24px;
+  color: #585859;
+}
+
+.text-center img {
+  width: 50%;
+  /* margin: 20px; */
+}
+
+.books {
+  padding: 0 0;
+  margin: 20px;
+
+  background-color: #f0fff0;
+  border-radius: 10px;
+
+  height: 270px;
+  transition: all 0.2s ease-in-out;
+}
+
+.books:hover {
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.books img {
+  width: 25%;
+}
+
+/* ----------------------------------------------------------- */ /* Online Courses*/
+
+.online-courses,
+.testimonial {
+  margin: 5%;
+  padding: 5%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.online-courses h2,
+.testimonial h2 {
+  margin-bottom: 3%;
+  font-weight: 700;
+  line-height: 54px;
+}
+
+.card {
+  /* border-radius: 11px; */
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 24px;
+  /* margin-top: 0; */
+  color: #585859;
+}
+
+.card-footer {
+  border: none;
+  background: inherit;
+  padding: 0;
+}
+
+.dates h6,
+.seats h6 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 0 5px;
+  padding: 0 0 0 0;
+  color: #585859;
+}
+
+/* ----------------------------------------------------------------------- */ /* testimonial */
+
+.testimonial-para {
+  font-size: 16px;
+  line-height: 30px;
+  /* height: auto; */
+  width: 50%;
+
+  padding-left: 30px;
+
+  color: #000000;
+}
+
+.testimonial div {
+  padding: 0px;
+}
+/* ------------------------------------------------------------------------  */ /* Footer */
+
+footer {
+  background-color: #282531;
+  /* height: 400px; */
+  /* width: 100%; */
+  padding: 50px;
+  padding-bottom: 10px;
+}
+
+footer p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ffffff;
+  padding-right: 50px;
+}
+
+footer h4 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+  /* margin-left: 50px; */
+
+  color: #ffffff;
+}
+
+footer ul {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  list-style: none;
+  padding-left: 0;
+
+  color: #ffffff;
+  /* margin: 50px; */
+}
+
+#copyright {
+  font-size: 14px;
+  line-height: 30px;
+
+  margin-bottom: 0;
+
+  padding-top: 5%;
+  color: #cdcdcd;
+}
