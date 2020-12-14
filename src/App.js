@@ -2,6 +2,15 @@ import React, { createContext, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+
+// Firebase App (the core Firebase SDK) is always required and must be listed first
+import * as firebase from "firebase/app";
+
+// Add the Firebase products that you want to use
+import "firebase/auth";
+import "firebase/firestore";
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -18,18 +27,18 @@ import BuyCourses from './components/BuyCourses/BuyCourses';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Profile from './components/Profile/Profile';
 import OrderReview from './components/OrderReview/OrderReview';
+// import firebaseConfig from './firebase.config';
 
 
 export const UserContext = createContext();
 
 function App() {
-
     const [loggedInUser, setLoggedInUser] = useState({});
+
 
     return (
 
-        <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
-
+        <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
 
             <Router>
 
@@ -45,14 +54,14 @@ function App() {
                     <Route path="/signUp">
                         <SignUp></SignUp>
                     </Route>
-
+                    
                     <Route path="/afterLogin">
                         <AfterLogin></AfterLogin>
                     </Route>
 
-                    <Route path="/profile">
+                    <PrivateRoute path="/profile">
                         <Profile></Profile>
-                    </Route>
+                    </PrivateRoute>
 
                     <PrivateRoute path="/buyCourses">
                         <BuyCourses></BuyCourses>

@@ -24,7 +24,8 @@ const Course = (props) => {
 
                     <div className="card-footer d-flex justify-content-between">
                         <h5>Price : ${price}</h5>
-                        <button className="btn btn-primary" onClick={enrollNowHandler}>Enroll Now</button>
+                        {/*  */}
+                        {props.children}
                     </div>
 
                 </div>

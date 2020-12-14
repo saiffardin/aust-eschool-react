@@ -1,0 +1,17 @@
+.profile-div .user-info-container {
+  width: 30%;
+  padding:20px;
+  margin: 10px 20px;
+  border-left: 1px solid black;
+}
+
+.profile-div .user-courses {
+    width: 70%;
+}
+
+
+
+.profile-div .user-info-container img {
+    width: 100%;
+    margin-bottom: 20px;
+}

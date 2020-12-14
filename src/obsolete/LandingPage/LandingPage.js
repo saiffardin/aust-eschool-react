@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './LandingPage.css';
 
 const LandingPage = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    if (loggedInUser.isSignedIn) setLoggedInUser({});
+
     return (
         <div className='landingPage'>
 
@@ -76,10 +82,6 @@ const LandingPage = () => {
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius blandit facilisis quam netus.
                             </p>
-
-                            {/* <a href="../SignUp/sign_up.html">
-                                <button className="btn-getStarted-buyCourse">Get Started</button>
-                            </a> */}
 
                             <Link to="/signUp">
                                 <button className="btn-getStarted-buyCourse">Get Started</button>

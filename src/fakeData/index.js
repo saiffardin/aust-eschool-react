@@ -1,15 +1,20 @@
 
-import course_info from './course_info';
+// import course_info from './course_info';
 
-const fakeData = [...course_info];
+// const fakeData = [...course_info];
 
-const shuffle = a => {
-    for (let i = a.length; i; i--) {
-        let j = Math.floor(Math.random() * i);
-        [a[i - 1], a[j]] = [a[j], a[i - 1]];
-    }
-}
+// console.log("fakedata len: ",fakeData.length);
+// fakeData.forEach(course => {
+//     console.log(course);
+// })
 
-shuffle(fakeData);
+// const shuffle = a => {
+//     for (let i = a.length; i; i--) {
+//         let j = Math.floor(Math.random() * i);
+//         [a[i - 1], a[j]] = [a[j], a[i - 1]];
+//     }
+// }
 
-export default fakeData;
+// shuffle(fakeData);
+
+// export default fakeData;

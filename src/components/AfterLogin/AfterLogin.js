@@ -15,7 +15,8 @@ import { UserContext } from '../../App';
 const AfterLogin = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
-        <div>
+        <div >
+            <h1>After Login Page</h1>
             <h1>{loggedInUser.email}</h1>
             <Header></Header>
         </div>

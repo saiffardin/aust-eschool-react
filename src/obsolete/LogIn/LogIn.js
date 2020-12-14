@@ -1,18 +1,36 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './log_in.css';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 
 import { UserContext } from '../../App';
 import { initializeLoginFramework, handleGoogleLogin, signInWithEmailAndPassword, handleFacebookLogin } from './loginManager';
 
+// Firebase App (the core Firebase SDK) is always required and must be listed first
+import * as firebase from "firebase/app";
+
+// Add the Firebase products that you want to use
+import "firebase/auth";
+import "firebase/firestore";
+import firebaseConfig from '../../firebase.config';
+
+
+if (firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig);
+}
 
 
 const LogIn = () => {
+
+    const db = firebase.firestore();
 
     const [user, setUser] = useState({
         isSignedIn: false,
         email: '',
         password: '',
+        displayName: '',
+        photoURL: '',
+        firstName: '',
+        
     });
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -22,6 +40,7 @@ const LogIn = () => {
     let { from } = location.state || { from: { pathname: "/profile" } };
 
     initializeLoginFramework();
+    
 
     const handleBlur = (e) => {
 
@@ -59,18 +78,37 @@ const LogIn = () => {
             console.log("sent to database");
             document.getElementById("login-form").reset();
 
-            // const email = user.email;
-            // const password = user.password;
-
             signInWithEmailAndPassword(user)
                 .then(res => {
-                    setUser(res);
-                    setLoggedInUser(res);
+                    if (res === -1) {
+                        alert('user-not-found. Create Account First');
+                        return;
+                    }
 
-                    history.replace(from);
+                    else if (res === -2) {
+                        alert("Incorrect password or the user doesn't have a password");
+                        return;
+                    }
+                    // console.log("user logged in");
+                    // console.log(res);
+
+
+                    db.collection('users').doc(res.uid).get()
+                        .then((doc) => {
+                            console.log('displayName: ', doc.data().firstName);
+                            res.displayName = doc.data().firstName;
+                        })
+                        .then(() => {
+                            setUser(res);
+                            setLoggedInUser(res);
+                            saveToLocalStorage(res);
+                            history.replace(from);
+                        })
+                        .catch(() => {
+                            console.log("login.js a db thike displayName read korte jhamela hoise")
+                        })
 
                 })
-
 
         }
         else {
@@ -83,28 +121,47 @@ const LogIn = () => {
     }
 
     const googleLogin = () => {
+        
         handleGoogleLogin(user)
             .then(res => {
                 setUser(res);
                 setLoggedInUser(res);
 
+                saveToLocalStorage(res);
                 history.replace(from);
             })
-            .catch (err => {
-                console.log("facebook kahini kortese");
+            .catch(err => {
+                console.log("google log in kahini kortese");
             })
     }
 
 
     const facebookLogin = () => {
+        
         handleFacebookLogin(user)
             .then(res => {
+
+                if (res=== -1){
+                    return;
+                }
                 setUser(res);
                 setLoggedInUser(res);
 
+                saveToLocalStorage(res);
                 history.replace(from);
             })
+            .catch(err => {
+                console.log("facebook log in kahini kortese");
+            })
     }
+
+    const saveToLocalStorage = (data) => {
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(data));
+        // console.log("local storage: ");
+        console.log(data);
+    }
+
 
 
     return (
@@ -134,7 +191,6 @@ const LogIn = () => {
 
                         {/* Log In Button */}
                         <div className="text-center px-5 mt-3 mb-2">
-                            {/* <button ></button> */}
                             <input className="btn logIn-btn " type="submit" value="Log In" />
                         </div>
 
@@ -163,8 +219,7 @@ const LogIn = () => {
                         {/* create account */}
                         <div className=" px-5 d-flex flex-row align-items-center justify-content-center mt-5">
                             <p>Do not have any account?</p>
-                            {/* <a href="../SignUp/sign_up.html" className="btn logIn-btn ml-3">Create Account</a> */}
-
+                            
                             <Link to='/signUp'>
                                 <button className="btn logIn-btn ml-3">Create Account</button>
                             </Link>
@@ -172,15 +227,12 @@ const LogIn = () => {
 
 
 
-                        <Link to='/afterLogin'>
+                        {/* <Link to='/afterLogin'>
                             <button className="btn logIn-btn m-5">Go To After Login Page</button>
-                        </Link>
+                        </Link> */}
                     </form>
                 </div>
             </div>
-
-
-
 
         </div>
 

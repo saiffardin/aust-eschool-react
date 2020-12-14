@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './sign_up.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import * as firebase from "firebase/app";
 
 // Add the Firebase products that you want to use
 import "firebase/auth";
+import "firebase/firestore";
 import firebaseConfig from '../../firebase.config';
 
+
+import { UserContext } from '../../App';
+
+if (firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig);
+}
+
 const SignUp = () => {
+
+    const db = firebase.firestore();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
 
     const [user, setUser] = useState({
         // isSignedIn: false,
@@ -17,6 +29,12 @@ const SignUp = () => {
         password: '',
         firstName: '',
         lastName: '',
+
+        isSignedIn: false,
+
+        displayName: '',
+        photoURL: ''
+
     });
 
     let isFirstNameValid = false;
@@ -30,7 +48,7 @@ const SignUp = () => {
     let password = '';
     let passwordConfirm = '';
 
-
+    let history = useHistory();
 
     const handleBlur = (e) => {
 
@@ -95,6 +113,7 @@ const SignUp = () => {
         }
     }
 
+
     const signUpHandler = (e) => {
         e.preventDefault();
 
@@ -105,14 +124,33 @@ const SignUp = () => {
                 password: password,
                 firstName: firstName,
                 lastName: lastName,
+                displayName: firstName,
             };
 
             setUser(newUser);
 
 
             firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((res) => {
+
+                    console.log(res);
+
+                    return db.collection('users').doc(res.user.uid).set({
+                        email: newUser.email,
+                        password: newUser.password,
+                        firstName: newUser.firstName,
+                        lastName: newUser.lastName,
+                        courses : [],
+                    });
+
+
+                })
                 .then(() => {
-                    console.log("successful");
+                    console.log("account created successfully.");
+                    newUser.isSignedIn = true;
+                    setLoggedInUser(newUser);
+                    localStorage.setItem('user', JSON.stringify(newUser))
+                    history.push("/profile");
                 })
                 .catch((err) => {
                     let errorCode = err.code;
@@ -122,7 +160,7 @@ const SignUp = () => {
                     console.log("errorCode: ", errorCode);
                     console.log("errorMessage: ", errorMessage);
 
-                    if (errorCode==='auth/email-already-in-use'){
+                    if (errorCode === 'auth/email-already-in-use') {
                         alert("Account already in use");
                     }
 

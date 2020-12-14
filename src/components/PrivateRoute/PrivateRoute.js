@@ -6,14 +6,15 @@ const PrivateRoute = ({children, ...rest}) => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
+    // if (loggedInUser.isSignedIn === false)
 
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                loggedInUser.isSignedIn
+                loggedInUser.isSignedIn || localStorage.getItem("user")
                     ? (children)
-                    : (
+                    :  (  
                         <Redirect
                             to={{
                                 pathname: "/logIn",
