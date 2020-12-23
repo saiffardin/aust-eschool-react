@@ -204,12 +204,12 @@ const LogIn = () => {
 
                             <p>
                                 {/* Google */}
-                                <img className="third-party" onClick={googleLogin} style={{ width: '60px', cursor: 'pointer', margin: '0 5px' }} src={require("./images/google.png")} alt="" />
+                                <img className="third-party img-fluid" onClick={googleLogin} style={{ width: '60px', cursor: 'pointer', margin: '0 5px' }} src={require("./images/google.png")} alt="" />
 
 
                                 {/* Facebook */}
 
-                                <img className="third-party" onClick={facebookLogin} style={{ width: '80px', cursor: 'pointer', margin: '0 0' }} src={require("./images/fb.png")} alt="" />
+                                <img className="third-party img-fluid" onClick={facebookLogin} style={{ width: '80px', cursor: 'pointer', margin: '0 0' }} src={require("./images/fb.png")} alt="" />
                             </p>
                         </div>
 

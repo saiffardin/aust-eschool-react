@@ -56,5 +56,12 @@
 }
 
 .LogIn .third-party:hover {
-  transform:scale(1.1);
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .LogIn .third-party {
+    /* background-color: lightblue; */
+    width: 50px !important ;
+  }
 }
